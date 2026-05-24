@@ -32,4 +32,7 @@ public class Appointment {
     public String getDate() {
         return date;
     }
+    public String getTime() {
+        return time;
+    }
 }
