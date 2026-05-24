@@ -167,4 +167,10 @@ public class ClientController {
         submitBtn.setStyle("-fx-background-color: #6B3A2A; -fx-text-fill: #F5ECD7; -fx-font-weight: bold; -fx-font-size: 13px; -fx-background-radius: 8; -fx-padding: 10 22; -fx-cursor: hand;");
         if (deleteBtn != null) deleteBtn.setDisable(true);
     }
+
+    private void showAlert(String msg) {
+        Alert a = new Alert(Alert.AlertType.WARNING);
+        a.setTitle("Validation"); a.setHeaderText(null); a.setContentText(msg);
+        a.showAndWait();
+    }
 }
