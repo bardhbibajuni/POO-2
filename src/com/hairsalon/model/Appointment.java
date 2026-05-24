@@ -20,4 +20,7 @@ public class Appointment {
     public int getId() {
         return id;
     }
+    public String getClientName() {
+        return clientName;
+    }
 }
