@@ -134,4 +134,22 @@ public class ClientController {
             }
         });
     }
+
+    private void loadClients() {
+        clients.clear();
+        String sql = "SELECT * FROM clients";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+            while (rs.next()) {
+                clients.add(new Client(
+                        rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getString("phone"),
+                        rs.getString("email")
+                ));
+            }
+            clientTable.setItems(clients);
+        } catch (Exception e) { e.printStackTrace(); }
+    }
 }
