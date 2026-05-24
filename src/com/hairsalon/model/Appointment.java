@@ -29,4 +29,7 @@ public class Appointment {
     public String getStylistName() {
         return stylistName;
     }
+    public String getDate() {
+        return date;
+    }
 }
