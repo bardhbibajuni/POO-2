@@ -23,4 +23,7 @@ public class Appointment {
     public String getClientName() {
         return clientName;
     }
+    public String getServiceName() {
+        return serviceName;
+    }
 }
