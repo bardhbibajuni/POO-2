@@ -113,4 +113,25 @@ public class ClientController {
             loadClients();
         } catch (Exception e) { e.printStackTrace(); }
     }
+
+    @FXML
+    public void deleteClient() {
+        if (editingId <= 0) { showAlert("Select a client first."); return; }
+
+        Alert confirm = new Alert(Alert.AlertType.CONFIRMATION,
+                "Delete this client?", ButtonType.YES, ButtonType.NO);
+        confirm.setHeaderText(null);
+        confirm.showAndWait().ifPresent(btn -> {
+            if (btn == ButtonType.YES) {
+                String sql = "DELETE FROM clients WHERE id = ?";
+                try (Connection conn = DatabaseConnection.getConnection();
+                     PreparedStatement stmt = conn.prepareStatement(sql)) {
+                    stmt.setInt(1, editingId);
+                    stmt.executeUpdate();
+                    clearForm();
+                    loadClients();
+                } catch (Exception e) { e.printStackTrace(); }
+            }
+        });
+    }
 }
