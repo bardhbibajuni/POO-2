@@ -93,4 +93,24 @@ public class ClientController {
             loadClients();
         } catch (Exception e) { e.printStackTrace(); }
     }
+
+    private void updateClient() {
+        String name  = nameField.getText().trim();
+        String phone = phoneField.getText().trim();
+        String email = emailField.getText().trim();
+
+        if (name.isEmpty() || phone.isEmpty()) { showAlert("Please fill name and phone."); return; }
+
+        String sql = "UPDATE clients SET name=?, phone=?, email=? WHERE id=?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, name);
+            stmt.setString(2, phone);
+            stmt.setString(3, email);
+            stmt.setInt(4, editingId);
+            stmt.executeUpdate();
+            clearForm();
+            loadClients();
+        } catch (Exception e) { e.printStackTrace(); }
+    }
 }
