@@ -41,4 +41,14 @@
             </VBox>
         </ScrollPane>
     </VBox>
+    <!-- ── TABLE SIDE ─────────────────────────── -->
+    <VBox HBox.hgrow="ALWAYS" style="-fx-background-color: #F5ECD7;">
+        <HBox style="-fx-background-color: #FFFDF8; -fx-padding: 18 24 15 24; -fx-border-color: transparent transparent #E0C9A8 transparent; -fx-border-width: 0 0 1 0;" alignment="CENTER_LEFT">
+            <VBox spacing="3">
+                <Label text="Appointments" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #1C0F09;"/>
+                <Label text="Click a row to edit  ·  All scheduled and past appointments"
+                       style="-fx-font-size: 12px; -fx-text-fill: #6B3A2A;"/>
+            </VBox>
+        </HBox>
+    </VBox>
 </HBox>
