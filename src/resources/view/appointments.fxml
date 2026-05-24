@@ -13,5 +13,14 @@
             <Label text="Fill in the details below"
                    style="-fx-text-fill: #C8975A; -fx-font-size: 11px;"/>
         </VBox>
+        <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS"
+                    style="-fx-background-color: transparent; -fx-background: #FFFDF8; -fx-border-color: transparent;">
+            <VBox spacing="10" style="-fx-padding: 20 16; -fx-background-color: #FFFDF8;">
+                <Label text="CLIENT NAME" style="-fx-text-fill: #6B3A2A; -fx-font-size: 11px; -fx-font-weight: bold;"/>
+                <TextField fx:id="clientNameField" promptText="Enter client name"/>
+                <Label text="SERVICE" style="-fx-text-fill: #6B3A2A; -fx-font-size: 11px; -fx-font-weight: bold;"/>
+                <ComboBox fx:id="serviceBox" prefWidth="254" maxWidth="1.7976931348623157E308"/>
+            </VBox>
+        </ScrollPane>
     </VBox>
 </HBox>
