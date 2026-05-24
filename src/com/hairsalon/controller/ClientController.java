@@ -54,4 +54,15 @@ public class ClientController {
 
         loadClients();
     }
+
+    private void populateForm(Client c) {
+        editingId = c.getId();
+        nameField.setText(c.getName());
+        phoneField.setText(c.getPhone());
+        emailField.setText(c.getEmail() != null ? c.getEmail() : "");
+
+        submitBtn.setText("Update Client");
+        submitBtn.setStyle("-fx-background-color: #6B3A2A; -fx-text-fill: #F5ECD7; -fx-font-weight: bold; -fx-font-size: 13px; -fx-background-radius: 8; -fx-padding: 10 22; -fx-cursor: hand;");
+        if (deleteBtn != null) deleteBtn.setDisable(false);
+    }
 }
