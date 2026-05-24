@@ -50,5 +50,18 @@
                        style="-fx-font-size: 12px; -fx-text-fill: #6B3A2A;"/>
             </VBox>
         </HBox>
+        <VBox style="-fx-padding: 18;" VBox.vgrow="ALWAYS">
+            <TableView fx:id="appointmentTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="idColumn"      text="ID"      prefWidth="55"/>
+                    <TableColumn fx:id="clientColumn"  text="Client"  prefWidth="155"/>
+                    <TableColumn fx:id="serviceColumn" text="Service" prefWidth="140"/>
+                    <TableColumn fx:id="stylistColumn" text="Stylist" prefWidth="140"/>
+                    <TableColumn fx:id="dateColumn"    text="Date"    prefWidth="108"/>
+                    <TableColumn fx:id="timeColumn"    text="Time"    prefWidth="78"/>
+                    <TableColumn fx:id="statusColumn"  text="Status"  prefWidth="108"/>
+                </columns>
+            </TableView>
+        </VBox>
     </VBox>
 </HBox>
