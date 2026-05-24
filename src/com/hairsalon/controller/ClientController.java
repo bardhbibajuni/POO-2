@@ -24,4 +24,13 @@ public class ClientController {
     @FXML private Button deleteBtn;
 
     private ToggleGroup genderGroup;
+
+    @FXML private TableView<Client> clientTable;
+    @FXML private TableColumn<Client, Integer> idColumn;
+    @FXML private TableColumn<Client, String> nameColumn;
+    @FXML private TableColumn<Client, String> phoneColumn;
+    @FXML private TableColumn<Client, String> emailColumn;
+
+    private final ObservableList<Client> clients = FXCollections.observableArrayList();
+    private int editingId = -1;
 }
