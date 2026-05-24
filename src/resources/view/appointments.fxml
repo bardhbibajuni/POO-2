@@ -5,4 +5,13 @@
       fx:controller="com.hairsalon.controller.AppointmentController"
       style="-fx-background-color: #F5ECD7;"
       VBox.vgrow="ALWAYS">
+    <!-- ── FORM PANEL ─────────────────────────── -->
+    <VBox style="-fx-background-color: #FFFDF8; -fx-min-width: 288; -fx-pref-width: 288; -fx-border-color: transparent #E0C9A8 transparent transparent; -fx-border-width: 0 1 0 0;">
+        <VBox style="-fx-background-color: #1C0F09; -fx-padding: 20 22;" spacing="4">
+            <Label text="New Appointment"
+                   style="-fx-text-fill: #F5ECD7; -fx-font-size: 15px; -fx-font-weight: bold;"/>
+            <Label text="Fill in the details below"
+                   style="-fx-text-fill: #C8975A; -fx-font-size: 11px;"/>
+        </VBox>
+    </VBox>
 </HBox>
