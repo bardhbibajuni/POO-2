@@ -17,4 +17,7 @@ public class Appointment {
         this.time = time;
         this.status = status;
     }
+    public int getId() {
+        return id;
+    }
 }
