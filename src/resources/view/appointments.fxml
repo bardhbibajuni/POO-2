@@ -20,6 +20,12 @@
                 <TextField fx:id="clientNameField" promptText="Enter client name"/>
                 <Label text="SERVICE" style="-fx-text-fill: #6B3A2A; -fx-font-size: 11px; -fx-font-weight: bold;"/>
                 <ComboBox fx:id="serviceBox" prefWidth="254" maxWidth="1.7976931348623157E308"/>
+                <Label text="STYLIST" style="-fx-text-fill: #6B3A2A; -fx-font-size: 11px; -fx-font-weight: bold;"/>
+                <ComboBox fx:id="stylistBox" prefWidth="254" maxWidth="1.7976931348623157E308"/>
+                <Label text="DATE" style="-fx-text-fill: #6B3A2A; -fx-font-size: 11px; -fx-font-weight: bold;"/>
+                <DatePicker fx:id="datePicker" prefWidth="254" maxWidth="1.7976931348623157E308"/>
+                <Label text="TIME" style="-fx-text-fill: #6B3A2A; -fx-font-size: 11px; -fx-font-weight: bold;"/>
+                <TextField fx:id="timeField" promptText="e.g.  14:30"/>
             </VBox>
         </ScrollPane>
     </VBox>
