@@ -33,4 +33,25 @@ public class ClientController {
 
     private final ObservableList<Client> clients = FXCollections.observableArrayList();
     private int editingId = -1;
+
+    @FXML
+    public void initialize() {
+        idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        phoneColumn.setCellValueFactory(new PropertyValueFactory<>("phone"));
+        emailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
+
+        genderGroup = new ToggleGroup();
+        femaleRadio.setToggleGroup(genderGroup);
+        maleRadio.setToggleGroup(genderGroup);
+
+        // Click row → fill form
+        clientTable.getSelectionModel().selectedItemProperty().addListener(
+                (obs, oldVal, selected) -> {
+                    if (selected != null) populateForm(selected);
+                }
+        );
+
+        loadClients();
+    }
 }
