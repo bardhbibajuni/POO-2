@@ -74,4 +74,23 @@ public class ClientController {
             insertClient();
         }
     }
+
+    private void insertClient() {
+        String name  = nameField.getText().trim();
+        String phone = phoneField.getText().trim();
+        String email = emailField.getText().trim();
+
+        if (name.isEmpty() || phone.isEmpty()) { showAlert("Please fill name and phone."); return; }
+
+        String sql = "INSERT INTO clients (name, phone, email) VALUES (?, ?, ?)";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, name);
+            stmt.setString(2, phone);
+            stmt.setString(3, email);
+            stmt.executeUpdate();
+            clearForm();
+            loadClients();
+        } catch (Exception e) { e.printStackTrace(); }
+    }
 }
