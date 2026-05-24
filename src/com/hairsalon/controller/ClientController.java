@@ -13,4 +13,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class ClientController {
+
+    @FXML private TextField nameField;
+    @FXML private TextField phoneField;
+    @FXML private TextField emailField;
+    @FXML private RadioButton femaleRadio;
+    @FXML private RadioButton maleRadio;
+    @FXML private CheckBox vipCheckBox;
+    @FXML private Button submitBtn;
+    @FXML private Button deleteBtn;
+
+    private ToggleGroup genderGroup;
 }
