@@ -152,4 +152,19 @@ public class ClientController {
             clientTable.setItems(clients);
         } catch (Exception e) { e.printStackTrace(); }
     }
+
+    @FXML
+    public void clearForm() {
+        editingId = -1;
+        nameField.clear();
+        phoneField.clear();
+        emailField.clear();
+        genderGroup.selectToggle(null);
+        vipCheckBox.setSelected(false);
+        clientTable.getSelectionModel().clearSelection();
+
+        submitBtn.setText("Save Client");
+        submitBtn.setStyle("-fx-background-color: #6B3A2A; -fx-text-fill: #F5ECD7; -fx-font-weight: bold; -fx-font-size: 13px; -fx-background-radius: 8; -fx-padding: 10 22; -fx-cursor: hand;");
+        if (deleteBtn != null) deleteBtn.setDisable(true);
+    }
 }
