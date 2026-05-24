@@ -26,4 +26,7 @@ public class Appointment {
     public String getServiceName() {
         return serviceName;
     }
+    public String getStylistName() {
+        return stylistName;
+    }
 }
