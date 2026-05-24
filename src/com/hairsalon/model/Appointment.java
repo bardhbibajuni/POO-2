@@ -35,4 +35,7 @@ public class Appointment {
     public String getTime() {
         return time;
     }
+    public String getStatus() {
+        return status;
+    }
 }
