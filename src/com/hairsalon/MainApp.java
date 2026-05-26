@@ -1,17 +1,57 @@
 package com.hairsalon;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class MainApp {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+import com.hairsalon.database.DatabaseInitializer;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.input.KeyCombination;
+import javafx.stage.Stage;
+import com.hairsalon.controller.MainController;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+public class MainApp extends Application {
+
+    @Override
+    public void start(Stage stage) throws Exception {
+        DatabaseInitializer.initializeDatabase();
+
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource("/resources/view/main.fxml")
+        );
+
+        Scene scene = new Scene(loader.load(), 1000, 650);
+
+        scene.getStylesheets().add(
+                getClass().getResource("/resources/css/style.css").toExternalForm()
+        );
+
+        MainController controller = loader.getController();
+
+        scene.getAccelerators().put(
+                KeyCombination.keyCombination("Ctrl+A"),
+                controller::showAppointments
+        );
+
+        scene.getAccelerators().put(
+                KeyCombination.keyCombination("Ctrl+C"),
+                controller::showClients
+        );
+
+        scene.getAccelerators().put(
+                KeyCombination.keyCombination("Ctrl+D"),
+                controller::showDashboard
+        );
+
+        scene.getAccelerators().put(
+                KeyCombination.keyCombination("Ctrl+H"),
+                controller::showHelp
+        );
+
+        stage.setTitle("Hair Salon Scheduler");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
     }
 }
