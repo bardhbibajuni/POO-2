@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.hairsalon.controller.ServicesController"
+      style="-fx-background-color: #F5ECD7;"
+      VBox.vgrow="ALWAYS">
+
+    <!-- ── FORM PANEL ─────────────────────────── -->
+    <VBox style="-fx-background-color: #FFFDF8; -fx-min-width: 280; -fx-pref-width: 280; -fx-border-color: transparent #E0C9A8 transparent transparent; -fx-border-width: 0 1 0 0;">
+
+        <VBox style="-fx-background-color: #1C0F09; -fx-padding: 20 22;" spacing="4">
+            <Label text="Add Service"
+                   style="-fx-text-fill: #F5ECD7; -fx-font-size: 15px; -fx-font-weight: bold;"/>
+            <Label text="Define your service catalog"
+                   style="-fx-text-fill: #C8975A; -fx-font-size: 11px;"/>
+        </VBox>
+
+        <VBox spacing="10" style="-fx-padding: 20 16; -fx-background-color: #FFFDF8;">
+
+            <Label text="SERVICE NAME" style="-fx-text-fill: #6B3A2A; -fx-font-size: 11px; -fx-font-weight: bold;"/>
+            <TextField fx:id="nameField" promptText="e.g. Haircut, Color..."/>
+
+            <HBox spacing="12">
+                <VBox spacing="6" HBox.hgrow="ALWAYS">
+                    <Label text="PRICE (€)" style="-fx-text-fill: #6B3A2A; -fx-font-size: 11px; -fx-font-weight: bold;"/>
+                    <TextField fx:id="priceField" promptText="15.00" maxWidth="1.7976931348623157E308"/>
+                </VBox>
+                <VBox spacing="6" HBox.hgrow="ALWAYS">
+                    <Label text="MINUTES" style="-fx-text-fill: #6B3A2A; -fx-font-size: 11px; -fx-font-weight: bold;"/>
+                    <TextField fx:id="durationField" promptText="45" maxWidth="1.7976931348623157E308"/>
+                </VBox>
+            </HBox>
+
+            <HBox style="-fx-background-color: #F5ECD7; -fx-background-radius: 8; -fx-padding: 10 12; -fx-border-color: #E0C9A8; -fx-border-radius: 8; -fx-border-width: 1;" spacing="8" alignment="CENTER_LEFT">
+                <Label text="💡" style="-fx-font-size: 13px;"/>
+                <Label text="Price in euros  ·  Duration in minutes"
+                       style="-fx-text-fill: #6B3A2A; -fx-font-size: 11px;" wrapText="true"/>
+            </HBox>
+
+            <Region prefHeight="8"/>
+
+            <Button fx:id="submitBtn" text="Add Service" styleClass="btn-brown"
+                    maxWidth="1.7976931348623157E308" onAction="#addService"/>
+            <Button text="Clear Form" styleClass="btn-cream"
+                    maxWidth="1.7976931348623157E308" onAction="#clearForm"/>
+            <Button fx:id="deleteBtn" text="Delete Selected"
+                    disable="true"
+                    maxWidth="1.7976931348623157E308" onAction="#deleteService"
+                    style="-fx-background-color: #F5ECD7; -fx-text-fill: #2C1810; -fx-font-weight: bold; -fx-font-size: 13px; -fx-background-radius: 8; -fx-padding: 10 22; -fx-cursor: hand; -fx-border-color: #6B3A2A; -fx-border-width: 1; -fx-border-radius: 8; -fx-opacity: 0.5;"/>
+
+        </VBox>
+    </VBox>
+
+    <!-- ── TABLE SIDE ─────────────────────────── -->
+    <VBox HBox.hgrow="ALWAYS" style="-fx-background-color: #F5ECD7;">
+
+        <HBox style="-fx-background-color: #FFFDF8; -fx-padding: 18 24 15 24; -fx-border-color: transparent transparent #E0C9A8 transparent; -fx-border-width: 0 0 1 0;" alignment="CENTER_LEFT">
+            <VBox spacing="3">
+                <Label text="Services" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #1C0F09;"/>
+                <Label text="Click a row to edit  ·  Your full service catalog"
+                       style="-fx-font-size: 12px; -fx-text-fill: #6B3A2A;"/>
+            </VBox>
+        </HBox>
+
+        <VBox style="-fx-padding: 18;" VBox.vgrow="ALWAYS">
+            <TableView fx:id="serviceTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="idColumn"       text="ID"        prefWidth="65"/>
+                    <TableColumn fx:id="nameColumn"     text="Service"   prefWidth="240"/>
+                    <TableColumn fx:id="priceColumn"    text="Price (€)" prefWidth="140"/>
+                    <TableColumn fx:id="durationColumn" text="Duration"  prefWidth="160"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </VBox>
+
+</HBox>
