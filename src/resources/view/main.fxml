@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.hairsalon.controller.MainController"
+            style="-fx-background-color: #F5ECD7;">
+
+    <top>
+        <MenuBar styleClass="menu-bar">
+            <Menu text="File">
+                <MenuItem text="New Appointment" onAction="#showAppointments"/>
+                <SeparatorMenuItem/>
+                <MenuItem text="Exit"/>
+            </Menu>
+            <Menu text="View">
+                <MenuItem text="Appointments" onAction="#showAppointments"/>
+                <MenuItem text="Clients"      onAction="#showClients"/>
+                <MenuItem text="Services"     onAction="#showServices"/>
+                <MenuItem text="Dashboard"    onAction="#showDashboard"/>
+            </Menu>
+            <Menu text="Language">
+                <MenuItem text="Shqip"   onAction="#setAlbanian"/>
+                <MenuItem text="English" onAction="#setEnglish"/>
+            </Menu>
+            <Menu text="Help">
+                <MenuItem text="Help"  onAction="#showHelp"/>
+                <MenuItem text="About"/>
+            </Menu>
+        </MenuBar>
+    </top>
+
+    <left>
+        <VBox style="-fx-background-color: #1C0F09; -fx-min-width: 220; -fx-pref-width: 220;">
+
+            <!-- Brand -->
+            <VBox style="-fx-background-color: #130A05; -fx-padding: 28 18 22 18; -fx-alignment: CENTER; -fx-spacing: 6; -fx-border-color: transparent transparent #2C1810 transparent; -fx-border-width: 0 0 1 0;">
+                <Label text="✂" style="-fx-text-fill: #C8975A; -fx-font-size: 34px;"/>
+                <Label text="LUXE SALON" style="-fx-text-fill: #F5ECD7; -fx-font-size: 14px; -fx-font-weight: bold;"/>
+                <!-- readable muted subtitle on dark bg -->
+                <Label text="Management System" style="-fx-text-fill: #8B6040; -fx-font-size: 10px;"/>
+            </VBox>
+
+            <!-- readable section labels: caramel on dark bg -->
+            <Label text="NAVIGATION"
+                   style="-fx-text-fill: #8B6040; -fx-font-size: 10px; -fx-font-weight: bold; -fx-padding: 18 0 6 22;"/>
+
+            <Button text="  Appointments" styleClass="nav-btn" onAction="#showAppointments"/>
+            <Button text="  Clients"      styleClass="nav-btn" onAction="#showClients"/>
+            <Button text="  Services"     styleClass="nav-btn" onAction="#showServices"/>
+            <Button text="  Dashboard"    styleClass="nav-btn" onAction="#showDashboard"/>
+
+            <Label text="SUPPORT"
+                   style="-fx-text-fill: #8B6040; -fx-font-size: 10px; -fx-font-weight: bold; -fx-padding: 16 0 6 22;"/>
+            <Button text="  Help" styleClass="nav-btn" onAction="#showHelp"/>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <HBox style="-fx-padding: 14 18; -fx-border-color: #2C1810 transparent transparent transparent; -fx-border-width: 1 0 0 0;">
+                <Label text="v 1.0  ·  Hair Salon" style="-fx-text-fill: #6B4030; -fx-font-size: 10px;"/>
+            </HBox>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox fx:id="contentArea" style="-fx-background-color: #F5ECD7;">
+
+            <HBox style="-fx-background-color: #2C1810; -fx-pref-height: 3; -fx-min-height: 3;"/>
+
+            <VBox alignment="CENTER" spacing="0" style="-fx-padding: 50 40;" VBox.vgrow="ALWAYS">
+
+                <StackPane style="-fx-background-color: #2C1810; -fx-background-radius: 50; -fx-pref-width: 88; -fx-pref-height: 88; -fx-alignment: CENTER;">
+                    <Label text="✂" style="-fx-text-fill: #C8975A; -fx-font-size: 38px;"/>
+                </StackPane>
+
+                <Region prefHeight="18"/>
+
+                <Label text="Hair Salon Scheduler"
+                       style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #1C0F09;"/>
+                <Region prefHeight="6"/>
+                <Label text="Manage appointments, clients and services"
+                       style="-fx-font-size: 14px; -fx-text-fill: #6B3A2A;"/>
+
+                <Region prefHeight="32"/>
+
+                <HBox spacing="14" alignment="CENTER">
+
+                    <VBox onMouseClicked="#showAppointments" alignment="CENTER" spacing="6"
+                          style="-fx-background-color: #FFFDF8; -fx-background-radius: 14; -fx-padding: 22 26; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(44,24,16,0.1), 12, 0, 0, 3); -fx-border-color: #E0C9A8; -fx-border-radius: 14; -fx-border-width: 1; -fx-min-width: 128;">
+                        <Label text="📅" style="-fx-font-size: 26px;"/>
+                        <Label text="Appointments" style="-fx-font-weight: bold; -fx-text-fill: #1C0F09; -fx-font-size: 13px;"/>
+                        <Label text="Schedule &amp; manage" style="-fx-text-fill: #8B5E3C; -fx-font-size: 11px;"/>
+                    </VBox>
+
+                    <VBox onMouseClicked="#showClients" alignment="CENTER" spacing="6"
+                          style="-fx-background-color: #FFFDF8; -fx-background-radius: 14; -fx-padding: 22 26; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(44,24,16,0.1), 12, 0, 0, 3); -fx-border-color: #E0C9A8; -fx-border-radius: 14; -fx-border-width: 1; -fx-min-width: 128;">
+                        <Label text="👥" style="-fx-font-size: 26px;"/>
+                        <Label text="Clients" style="-fx-font-weight: bold; -fx-text-fill: #1C0F09; -fx-font-size: 13px;"/>
+                        <Label text="Client directory" style="-fx-text-fill: #8B5E3C; -fx-font-size: 11px;"/>
+                    </VBox>
+
+                    <VBox onMouseClicked="#showServices" alignment="CENTER" spacing="6"
+                          style="-fx-background-color: #FFFDF8; -fx-background-radius: 14; -fx-padding: 22 26; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(44,24,16,0.1), 12, 0, 0, 3); -fx-border-color: #E0C9A8; -fx-border-radius: 14; -fx-border-width: 1; -fx-min-width: 128;">
+                        <Label text="✂" style="-fx-font-size: 26px; -fx-text-fill: #C8975A;"/>
+                        <Label text="Services" style="-fx-font-weight: bold; -fx-text-fill: #1C0F09; -fx-font-size: 13px;"/>
+                        <Label text="Pricing &amp; catalog" style="-fx-text-fill: #8B5E3C; -fx-font-size: 11px;"/>
+                    </VBox>
+
+                    <VBox onMouseClicked="#showDashboard" alignment="CENTER" spacing="6"
+                          style="-fx-background-color: #FFFDF8; -fx-background-radius: 14; -fx-padding: 22 26; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(44,24,16,0.1), 12, 0, 0, 3); -fx-border-color: #E0C9A8; -fx-border-radius: 14; -fx-border-width: 1; -fx-min-width: 128;">
+                        <Label text="📊" style="-fx-font-size: 26px;"/>
+                        <Label text="Dashboard" style="-fx-font-weight: bold; -fx-text-fill: #1C0F09; -fx-font-size: 13px;"/>
+                        <Label text="Stats &amp; insights" style="-fx-text-fill: #8B5E3C; -fx-font-size: 11px;"/>
+                    </VBox>
+
+                </HBox>
+            </VBox>
+        </VBox>
+    </center>
+
+    <bottom>
+        <HBox style="-fx-background-color: #1C0F09; -fx-padding: 7 20;" alignment="CENTER_LEFT" spacing="8">
+            <Label text="●" style="-fx-text-fill: #C8975A; -fx-font-size: 9px;"/>
+            <Label text="Ready  ·  Hair Salon Scheduler"
+                   style="-fx-text-fill: #8B6040; -fx-font-size: 11px;"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>
