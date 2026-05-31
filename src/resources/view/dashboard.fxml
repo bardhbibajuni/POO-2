@@ -4,3 +4,68 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.hairsalon.controller.DashboardController"
+      style="-fx-background-color: #F5ECD7;"
+      VBox.vgrow="ALWAYS">
+
+    <HBox style="-fx-background-color: #FFFDF8; -fx-padding: 20 28 18 28; -fx-border-color: transparent transparent #E0C9A8 transparent; -fx-border-width: 0 0 1 0;" alignment="CENTER_LEFT">
+        <VBox spacing="4">
+            <Label text="Dashboard" style="-fx-font-size: 21px; -fx-font-weight: bold; -fx-text-fill: #1C0F09;"/>
+            <Label text="Overview of your salon performance" style="-fx-font-size: 12px; -fx-text-fill: #6B3A2A;"/>
+        </VBox>
+    </HBox>
+
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS"
+                style="-fx-background-color: transparent; -fx-background: #F5ECD7; -fx-border-color: transparent;">
+        <VBox spacing="20" style="-fx-padding: 24; -fx-background-color: #F5ECD7;">
+
+            <!-- ── STAT CARDS ─── no red, only brown shades ── -->
+            <HBox spacing="14">
+
+                <HBox style="-fx-background-color: #FFFDF8; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(44,24,16,0.1), 12, 0, 0, 2);"
+                      HBox.hgrow="ALWAYS" minWidth="0">
+                    <Region style="-fx-background-color: #1C0F09; -fx-min-width: 5; -fx-background-radius: 12 0 0 12;"/>
+                    <VBox style="-fx-padding: 18 18;" spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="TOTAL" style="-fx-text-fill: #8B5E3C; -fx-font-size: 10px; -fx-font-weight: bold;"/>
+                        <Label fx:id="totalAppointmentsLabel" text="0"
+                               style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: #1C0F09;"/>
+                        <Label text="All time" style="-fx-text-fill: #C8975A; -fx-font-size: 11px;"/>
+                    </VBox>
+                </HBox>
+
+                <HBox style="-fx-background-color: #FFFDF8; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(44,24,16,0.1), 12, 0, 0, 2);"
+                      HBox.hgrow="ALWAYS" minWidth="0">
+                    <Region style="-fx-background-color: #6B3A2A; -fx-min-width: 5; -fx-background-radius: 12 0 0 12;"/>
+                    <VBox style="-fx-padding: 18 18;" spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="COMPLETED" style="-fx-text-fill: #8B5E3C; -fx-font-size: 10px; -fx-font-weight: bold;"/>
+                        <Label fx:id="completedLabel" text="0"
+                               style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: #6B3A2A;"/>
+                        <Label text="Done" style="-fx-text-fill: #C8975A; -fx-font-size: 11px;"/>
+                    </VBox>
+                </HBox>
+
+                <HBox style="-fx-background-color: #FFFDF8; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(44,24,16,0.1), 12, 0, 0, 2);"
+                      HBox.hgrow="ALWAYS" minWidth="0">
+                    <Region style="-fx-background-color: #C8975A; -fx-min-width: 5; -fx-background-radius: 12 0 0 12;"/>
+                    <VBox style="-fx-padding: 18 18;" spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="CANCELLED" style="-fx-text-fill: #8B5E3C; -fx-font-size: 10px; -fx-font-weight: bold;"/>
+                        <Label fx:id="cancelledLabel" text="0"
+                               style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: #C8975A;"/>
+                        <Label text="Cancelled" style="-fx-text-fill: #C8975A; -fx-font-size: 11px;"/>
+                    </VBox>
+                </HBox>
+
+                <HBox style="-fx-background-color: #FFFDF8; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(44,24,16,0.1), 12, 0, 0, 2);"
+                      HBox.hgrow="ALWAYS" minWidth="0">
+                    <Region style="-fx-background-color: #2C1810; -fx-min-width: 5; -fx-background-radius: 12 0 0 12;"/>
+                    <VBox style="-fx-padding: 18 18;" spacing="4" HBox.hgrow="ALWAYS">
+                        <Label text="SCHEDULED" style="-fx-text-fill: #8B5E3C; -fx-font-size: 10px; -fx-font-weight: bold;"/>
+                        <Label text="—" style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: #2C1810;"/>
+                        <Label text="Upcoming" style="-fx-text-fill: #C8975A; -fx-font-size: 11px;"/>
+                    </VBox>
+                </HBox>
+
+            </HBox>
+
+
