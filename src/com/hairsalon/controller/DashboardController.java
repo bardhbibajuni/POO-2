@@ -73,5 +73,37 @@ public class DashboardController {
                 GROUP BY service_name
                 """;
 
+        
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                series.getData().add(new XYChart.Data<>(
+                        rs.getString("service_name"),
+                        rs.getInt("total")
+                ));
+            }
+
+            serviceChart.getData().add(series);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void generateAIInsight(int total, int completed, int cancelled, int scheduled) {
+        if (total == 0) {
+            aiInsightLabel.setText("No appointment data available yet. Add appointments to generate insights.");
+        } else if (cancelled > completed) {
+            aiInsightLabel.setText("AI Insight: Cancellation rate is high. Consider confirming appointments with clients earlier.");
+        } else if (scheduled > completed) {
+            aiInsightLabel.setText("AI Insight: Many appointments are still scheduled. The salon should prepare staff availability.");
+        } else {
+            aiInsightLabel.setText("AI Insight: Appointment performance looks stable. Most clients are completing their bookings.");
+        }
+    }
+}
+
 
   
