@@ -45,6 +45,7 @@
         <resources>
             <resource>
                 <directory>src/resources</directory>
+                <targetPath>resources</targetPath>
             </resource>
         </resources>
 
