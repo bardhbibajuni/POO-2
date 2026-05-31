@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.hairsalon.controller.HelpController">
+
+    <top>
+        <Label text="Help / Ndihmë"
+               style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-padding: 15;"/>
+    </top>
+
+    <center>
+        <VBox spacing="15" style="-fx-padding: 20;">
+
+            <TextArea fx:id="helpTextArea"
+                      editable="false"
+                      wrapText="true"
+                      prefHeight="400"/>
+
+            <HBox spacing="10">
+                <Button text="Shqip" onAction="#showAlbanianHelp"/>
+                <Button text="English" onAction="#showEnglishHelp"/>
+            </HBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>
