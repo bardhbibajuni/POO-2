@@ -12,4 +12,66 @@ import java.sql.ResultSet;
 
 public class DashboardController {
 
+    @FXML private Label totalAppointmentsLabel;
+    @FXML private Label completedLabel;
+    @FXML private Label cancelledLabel;
+    @FXML private Label aiInsightLabel;
+
+    @FXML private PieChart statusChart;
+    @FXML private BarChart<String, Number> serviceChart;
+
+    @FXML
+    public void initialize() {
+        loadStatistics();
+    }
+
+    private void loadStatistics() {
+        int total = getCount("SELECT COUNT(*) FROM appointments");
+        int completed = getCount("SELECT COUNT(*) FROM appointments WHERE status = 'Completed'");
+        int cancelled = getCount("SELECT COUNT(*) FROM appointments WHERE status = 'Cancelled'");
+        int scheduled = getCount("SELECT COUNT(*) FROM appointments WHERE status = 'Scheduled'");
+
+        totalAppointmentsLabel.setText(String.valueOf(total));
+        completedLabel.setText(String.valueOf(completed));
+        cancelledLabel.setText(String.valueOf(cancelled));
+
+        statusChart.setData(FXCollections.observableArrayList(
+                new PieChart.Data("Scheduled", scheduled),
+                new PieChart.Data("Completed", completed),
+                new PieChart.Data("Cancelled", cancelled)
+        ));
+
+        loadServiceChart();
+        generateAIInsight(total, completed, cancelled, scheduled);
+    }
+
+    private int getCount(String sql) {
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+
+            if (rs.next()) {
+                return rs.getInt(1);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return 0;
+    }
+
+    private void loadServiceChart() {
+        serviceChart.getData().clear();
+
+        XYChart.Series<String, Number> series = new XYChart.Series<>();
+        series.setName("Services");
+
+        String sql = """
+                SELECT service_name, COUNT(*) AS total
+                FROM appointments
+                GROUP BY service_name
+                """;
+
+
   
